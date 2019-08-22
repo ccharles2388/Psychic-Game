@@ -12,73 +12,17 @@
 
 <body>
 
+
     <div>
         <p id="directions-text">Guess What Letter I'm Thinking Of ? Type Any Letter To Begin</p>
-        <p id="userchoice-text"></p>
-        <p id="computerchoice-text"></p>
-        <p id="wins-text"></p>
-        <p id="losses-text"></p>
-        <p id="ties-text"></p>
+        <p>Wins</p>
+        <p>Losses</p>
+        <p >Guesses Left:<span id="guesses_left"></span></p>
+        <p>Your Guesses so Far</p>
+
     </div>
-
-    <script type="text/javascript">
-        // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
-        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-        // Creating variables to hold the number of wins, losses, and ties. They start at 0.
-        var wins = 0;
-        var losses = 0;
-
-
-        // Create variables that hold references to the places in the HTML where we want to display things.
-        var directionsText = document.getElementById("directions-text");
-        var userChoiceText = document.getElementById("userchoice-text");
-        var computerChoiceText = document.getElementById("computerchoice-text");
-        var winsText = document.getElementById("wins-text");
-        var lossesText = document.getElementById("losses-text");
-
-
-        // This function is run whenever the user presses a key.
-        document.onkeyup = function (event) {
-
-            // Determines which key was pressed.
-            var userGuess = event.key;
-
-            // Randomly chooses a choice from the options array. This is the Computer's guess.
-            var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-
-
-
-            // This logic determines the outcome of the game (win/loss), and increments the appropriate number
-            if ((userGuess === "a") || (userGuess === "b") || (userGuess === "c") || (userGuess === "d")
-                || (userGuess === "e") || (userGuess === "f") || (userGuess === "g") || (userGuess === "h")
-                || (userGuess === "i") || (userGuess === "j") || (userGuess === "k") || (userGuess === "l")
-                || (userGuess === "m") || (userGuess === "n") || (userGuess === "o") || (userGuess === "p")
-                || (userGuess === "q") || (userGuess === "r") || (userGuess === "s") || (userGuess === "t")
-                || (userGuess === "u") || (userGuess === "v") || (userGuess === "w") || (userGuess === "x")
-                || (userGuess === "y") || (userGuess === "z")) {
-
-                if ((userGuess === "a" && computerGuess === "a") ||
-                    (userGuess === "b" && computerGuess === "b") ||
-                    (userGuess === "c" && computerGuess === "c")) {
-                    wins++;
-                } else (userGuess === computerGuess) {
-                    losses++;
-                }
-
-                // Hide the directions
-                directionsText.textContent = "";
-
-                // Display the user and computer guesses, and wins/losses/ties.
-                userChoiceText.textContent = "You chose: " + userGuess;
-                computerChoiceText.textContent = "The computer chose: " + computerGuess;
-                winsText.textContent = "wins: " + wins;
-                lossesText.textContent = "losses: " + losses;
-
-            }
-        };
+    <script type="text/javascript" src="assets/javascript/game.js">
     </script>
-
 </body>
 
 </html>
