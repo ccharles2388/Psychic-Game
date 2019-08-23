@@ -5,6 +5,7 @@ var UserLetterSelection = null;
 var ComputerChoice;
 var wins = 0;
 var losses = 0;
+var userGuesses = [];
 function updatewins() {
     document.querySelector("#wins").innerHTML = wins;
 }
@@ -21,10 +22,18 @@ function chooseletter() {
     console.log(ComputerChoice);
 }
 
+function updateGuesses() {
+    document.querySelector("#guesses").innerHTML = userGuesses;
+}
+
 document.onkeydown = function (event) {
+    var guessedLetter = event.key;
+    userGuesses.push(guessedLetter);
+    updateGuesses();
     guessesLeft--;
     console.log(guessesLeft);
     updateGuessesLeft();
+    console.log(userGuesses);
     var userKey = event.key.toLowerCase();
     if (ComputerChoice == userKey) {
         wins++;
