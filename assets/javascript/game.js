@@ -47,6 +47,19 @@ document.onkeydown = function (event) {
     }
 }
 
+function resetGame() {
+    guessesLeft = 9; 
+    UserLetterSelection = null;
+    wins = 0;
+    losses = 0;
+    userGuesses = [];
+    updatewins()
+    updatelosses()
+    updateGuessesLeft()
+    updateGuesses()
+
+}
+
 // Creating variables to hold the number of wins and losses They start at 0.
 
 
